@@ -1,0 +1,21 @@
+{
+  "name": "happyexpat",
+  "version": "1.0.0",
+  "description": "Service for tracking of Denmark visa status ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "OLZ",
+  "license": "ISC",
+  "dependencies": {
+    "agenda": "^0.9.1",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.3",
+    "mongoose-upsert": "^1.0.1",
+    "nconf": "^0.8.4",
+    "winston": "^2.3.1"
+  }
+}

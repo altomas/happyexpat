@@ -3,7 +3,7 @@ var log         = require('./log')(module);
 var config      = require('./config');
 var upsert = require('mongoose-upsert');
 
-var connectionMongo = process.env.MONGODB_URI || config.get('mongoose:uri');
+var connectionMongo = config.get('mongoose:uri');
 
 mongoose.connect(config.get('mongoose:uri'));
 var db = mongoose.connection;

@@ -23,7 +23,11 @@
 	
 - Initialize project: In command line run command : "node install" (it will install all necessary modules)
 - Run project - In command line run command : "nodemon index.js" it will start server on port 1338
-- In browser request url: localhost:1338 (it will show you home page) 		
+- In browser request url: localhost:1338 (it will show you home page)
+- Open project in Visual Studio Code
+			a) run the VS code program
+			b) click on File -> openFolder (find the folder with project)
+			
 		
 		
 		

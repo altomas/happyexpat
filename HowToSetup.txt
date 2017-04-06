@@ -17,7 +17,7 @@
 		d) it will open black screen with command line 
 		
 - in cmd (command line) install nodemon run command  "npm install -g nodemon"
-- Initialize project: In command line run command : "node init" (it will install all necessary modules)
+- Initialize project: In command line run command : "node install" (it will install all necessary modules)
 - Run project - In command line run command : "nodemon index.js" it will start server on port 1338
 - In browser request url: localhost:1338 (it will show you home page) 		
 		

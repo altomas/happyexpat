@@ -13,6 +13,7 @@
     "agenda": "^0.9.1",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "jst": "0.0.13",
     "mongoose": "^4.9.3",
     "mongoose-upsert": "^1.0.1",
     "nconf": "^0.8.4",

@@ -20,6 +20,7 @@ server.use(bodyParser.urlencoded({ extended: true })); // support encoded bo
 
 
 require('./rest')(server);
+require('../UI/uiroutes')(server);
 
 server.use(function(req, res, next){
     res.status(404);

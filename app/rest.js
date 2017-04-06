@@ -2,8 +2,9 @@ var log    = require('./log')(module);
 var getStatus = require('./getStatus')
 
 var restAPI = function (server){
-        server.get('/api', function (req, res) {
-            getStatus('AY-6399-QJ',function (err, track) {
+        server.get('/api/:caseid', function (req, res) {
+            
+            getStatus(req.params.caseid,function (err, track) {
                 if (!err) {
                     return res.send(track);
                 } else {

@@ -1,32 +1,59 @@
 
 - install nodeJS (https://nodejs.org/en/download/)
+
 - install TutrtoisGit (https://tortoisegit.org/download/)
+
 - install Visual Studio Code  
-	a) instal .net framework (https://www.microsoft.com/en-us/download/details.aspx?id=42643)
-	b) download and install VSCode (https://code.visualstudio.com/docs/setup/windows)
+	
+     a) (for win 7 only)instal .net framework  
+		(https://www.microsoft.com/en-us/download/details.aspx?id=42643)
+	
+     b) download and install VSCode 
+		(https://code.visualstudio.com/docs/setup/windows)
 - clone HappyExpat project https://github.com/altomas/happyexpat
+	
 	a) on frontpage of project "happyexpat" push button "Clon or Download"
+	
 	b) copy url
+	
 	c) in folder on the computer click right button of mouse, choose Git Clone.
+
 - open cmd command line editor in folder with project 
+	
 	how to open cmd: 
+		
 		a) open the project folder in windows file explorer
+		
 		b) click at the beginning of line with folder path and write there cmd.
+			
 			It will look something like "cmd C:\\MyProjects\HappyExpat"
+		
 		c) press enter
+		
 		d) it will open black screen with command line 
 		
+
 - in cmd (command line) install nodemon run command  "npm install -g nodemon"
+
 - setup default path to nodemon 
+	
 	a) how to setup path https://www.youtube.com/watch?v=C-U9SGaNbwY
+	
 	b) add path: %USERPROFILE%\AppData\Roaming\npm
 	
+
 - Initialize project: In command line run command : "node install" (it will install all necessary modules)
-- Run project - In command line run command : "nodemon index.js" it will start server on port 1338
+
+- Run project 
+	a) In command line run command : "nodemon index.js" it will start server on port 1338
+
 - In browser request url: localhost:1338 (it will show you home page)
+
 - Open project in Visual Studio Code
-			a) run the VS code program
-			b) click on File -> openFolder (find the folder with project)
+			
+	a) run the VS code program
+			
+	b) click on File -> openFolder (find the folder with project)
 			
 		
 		

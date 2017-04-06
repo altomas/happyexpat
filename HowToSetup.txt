@@ -1,10 +1,13 @@
 
 - install nodeJS (https://nodejs.org/en/download/)
-
+- install TutrtoisGit (https://tortoisegit.org/download/)
 - install Visual Studio Code  
 	a) instal .net framework (https://www.microsoft.com/en-us/download/details.aspx?id=42643)
 	b) download and install VSCode (https://code.visualstudio.com/docs/setup/windows)
 - clone HappyExpat project https://github.com/altomas/happyexpat
+	a) on frontpage of project "happyexpat" push button "Clon or Download"
+	b) copy url
+	c) in folder on the computer click right button of mouse, choose Git Clone.
 - open cmd command line editor in folder with project 
 	how to open cmd: 
 		a) open the project folder in windows file explorer

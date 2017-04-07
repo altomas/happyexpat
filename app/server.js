@@ -18,7 +18,7 @@ server.use(bodyParser.urlencoded({ extended: true })); // support encoded bo
 //app.use(express.bodyParser()); // стандартный модуль, для парсинга JSON в запросах
 //app.use(express.methodOverride()); // поддержка put и delete
 //app.use(app.router); // модуль для простого задания обработчиков путей
-//app.use(express.static(path.join(__dirname, "public"))); // запуск статического файлового сервера, который смотрит на папку public/ (в нашем случае отдает index.html)
+server.use(express.static('UI')); // запуск статического файлового сервера, который смотрит на папку public/ (в нашем случае отдает index.html)
 
 
 require('./rest')(server);

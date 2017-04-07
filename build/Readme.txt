@@ -5,7 +5,7 @@ git push heroku master
 
 - test environment :
 
-https://playmama.herokuapp.com/
+https://happyexpat.herokuapp.com/
 
 - To see log files use command:
 

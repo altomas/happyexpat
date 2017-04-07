@@ -1,8 +1,10 @@
 var express         = require('express');
 var path            = require('path'); // модуль для парсинга пути
 var log             = require('./log')(module);
+var mongodb         = require('./mongo');
 
 var server = express();
+
 
 
 //var logger = require('express-logger');

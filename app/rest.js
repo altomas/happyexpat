@@ -1,10 +1,17 @@
 var log    = require('./log')(module);
-var getStatus = require('./getStatus')
+var tracking = require('./tracking');
+
+var bodyParser = require('body-parser');
 
 var restAPI = function (server){
-        server.get('/api/:caseid', function (req, res) {
-            
-            getStatus(req.params.caseid,function (err, track) {
+
+    server.use(bodyParser.json()); // support json encoded bodies
+    server.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+    
+    server.get('/api/:caseid', function (req, res) {
+            console.log(tracking)
+console.log(tracking.getStatus)
+            tracking.getStatus(req.params.caseid,function (err, track) {
                 if (!err) {
                     return res.send(track);
                 } else {
@@ -13,7 +20,18 @@ var restAPI = function (server){
                     return res.send({ error: err });
                 }
             });
-    })
+    });
+
+    // POST http://localhost:8080/api/subscribe
+    // parameters sent with 
+    server.post('/api/subscribe', function(req, res) {
+        var caseid = req.body.caseid;
+        var mail = req.body.mail;
+      
+
+        res.send(caseid + ' ' + mail);
+    });
+
 }
 
 module.exports = restAPI;

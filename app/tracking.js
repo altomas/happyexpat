@@ -1,8 +1,8 @@
 var log                 = require('./log')(module);
-var TrackingModel       = require('./mongo').TrackingModel;
+var TrackingModel       = require('./models/tracking.model').TrackingModel;
 var requestStatusData   = require('./provider');
 
- var getStatus = function (id, callback){
+ var getStatusfn = function (id, callback){
     TrackingModel.findOne({'_id': id }, [] , function (err, trackObj) {
         if (err) {
             error = err;
@@ -51,4 +51,4 @@ var requestStatusData   = require('./provider');
     });
 }
 
-module.exports = getStatus;
+module.exports = { getStatus: getStatusfn };

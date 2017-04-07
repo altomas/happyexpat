@@ -42,7 +42,7 @@
 	b) add path: %USERPROFILE%\AppData\Roaming\npm
 	
 
-- Initialize project: In command line run command : "node install" (it will install all necessary modules)
+- Initialize project: In command line run command : "npm install" (it will install all necessary modules)
 
 - Run project 
 	a) In command line run command : "nodemon index.js" it will start server on port 1338

@@ -56,7 +56,7 @@ File: Layout CSS
 --------------------------------------------------------------------------------------------------------------- */
 #pageintro{padding:120px 0;}
 
-#pageintro .introtxt{display:block; position:relative; float:right; max-width:50%; margin:0; padding:50px; text-align:center; z-index:1;}
+#pageintro .introtxt{display:block; position:relative;  max-width:50%; margin:0 auto; padding:50px; text-align:center; z-index:1;}
 #pageintro .introtxt::before{display:block; position:absolute; top:0; right:0; bottom:0; left:0; content:""; z-index:-1;}
 #pageintro .introtxt *{margin:0;}
 #pageintro .introtxt .heading{margin-bottom:30px; font-size:30px;}
@@ -295,7 +295,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#BD9969;}
 .overlay{color:#FFFFFF; background-color:inherit;}
 .overlay::after{color:inherit; background-color:rgba(0,0,0,.45);}
 
-.btn{color:#FFFFFF; background-color:#BD9969; border-color:#BD9969;}
+.btn{color:#FFFFFF; background-color:#00acee;}
 .btn:hover{color:inherit; background-color:transparent; border-color:inherit;}
 
 .split50{color:#FFFFFF;}

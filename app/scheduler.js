@@ -31,25 +31,24 @@ agenda.on('ready', function() {
                    return;
                 }
                 
-                var processed = true; //track.stats == 10;
+                var processed = track.stats == 10;
 
                 if(processed){
-                    log.info('mail sent'+ new Date().toISOString())
                     //send mail
-                    // mailing.submit(
-                    //     job.attrs.data.email,
-                    //     'donotreplay subject', 
-                    //     'processed : ' + track, 
-                    //     function(err){
+                    mailing.submit(
+                        job.attrs.data.email,
+                        'donotreplay subject', 
+                        'processed : ' + track, 
+                        function(err){
                             
-                    //         if(err){
-                    //             console.log(err);
-                    //             return;
-                    //         }
+                            if(err){
+                                console.log(err);
+                                return;
+                            }
                             
-                    //         //remove job
-                    //         //finishJob();
-                    //     });
+                            //remove job
+                            finishJob();
+                        });
                 }
 
                 actionDone();
@@ -69,13 +68,11 @@ agenda.on('ready', function() {
     agenda.start();
 });
 
-
-
-
 var statusupdt = function(data, done){
     var job = agenda.create('schedule:statusupdt', data);
     // TODO: move interval into configuration
-    job.repeatEvery('10 seconds')
+    job.repeatEvery('1 day');
+    job.unique({'data.caseid': data.caseid, 'data.email': data.email });
     job.save(function(err) {
             if (err) {
                 log.error(err);

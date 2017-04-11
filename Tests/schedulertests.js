@@ -5,18 +5,12 @@ var expect = chai.expect;
 var mongoose = require('mongoose');
 require('sinon-mongoose');
 
+var TrackingModel       = require('./models/tracking.model').TrackingModel;
+
 describe("Schedule status update", function(){
          // Test will pass if we get all todos
-        it("should return all todos", function(done){
-            var TodoMock = sinon.mock(Todo);
-            var expectedResult = {status: true, todo: []};
-            TodoMock.expects('find').yields(null, expectedResult);
-            Todo.find(function (err, result) {
-                TodoMock.verify();
-                TodoMock.restore();
-                expect(result.status).to.be.true;
-                done();
-            });
+        it("should return free time slot", function(done){
+            
         });
 
         // Test will pass if we fail to get a todo

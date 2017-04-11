@@ -9,15 +9,15 @@ var restAPI = function (server){
     server.use(bodyParser.json()); // support json encoded bodies
     server.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
     
-    server.get('/api/schedule', function (req, res) {
-           var mail = "altomas@yandex.ru";
-           var caseid = 'AY-6399-QJ';
+    // server.get('/api/schedule', function (req, res) {
+    //        var mail = "altomas@yandex.ru";
+    //        var caseid = 'AY-6399-QJ';
 
-           scheduler.scheduleStatusUPDT({caseid:caseid , email: mail}, function(err, job){
-                    return res.send({ error: err, job: job });
-        }); 
+    //        scheduler.scheduleStatusUPDT({caseid:caseid , email: mail}, function(err, job){
+    //                 return res.send({ error: err, job: job });
+    //     }); 
 
-    });
+    // });
 
 
     server.get('/api/:caseid', function (req, res) {

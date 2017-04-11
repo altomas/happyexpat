@@ -3,7 +3,10 @@ var TrackingModel       = require('./models/tracking.model').TrackingModel;
 var requestStatusData   = require('./provider');
 
  var getStatusfn = function (id, callback){
-    TrackingModel.findOne({'_id': id }, [] , function (err, trackObj) {
+
+    var inputDate = new Date(new Date().valueOf() - 1000*3600*24).toISOString();
+
+    TrackingModel.findOne({'_id': id, 'updated':  { $gte: inputDate }  }, [] , function (err, trackObj) {
         if (err) {
             error = err;
             return;
@@ -13,7 +16,7 @@ var requestStatusData   = require('./provider');
             callback(null, trackObj);
             return;
         }
-
+        console.log('data requested')
         requestStatusData(id, function(err, data){
         if(err)
         {

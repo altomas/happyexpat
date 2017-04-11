@@ -42,7 +42,7 @@ File: Layout CSS
 #header{padding:0 30px;}
 #header *{line-height:1;}
 
-#header #logo{margin-top:26px;}
+#header #logo{margin-top:15px; margin-bottom: 15px;}
 #header #logo *{margin:0; padding:0;}
 
 
@@ -54,13 +54,13 @@ File: Layout CSS
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{padding:120px 0;}
+#pageintro{padding:70px 0;}
 
-#pageintro .introtxt{display:block; position:relative;  max-width:50%; margin:0 auto; padding:50px; text-align:center; z-index:1;}
+#pageintro .introtxt{display:block; position:relative;  max-width:60%; margin:0 auto; padding:50px; text-align:center; z-index:1;}
 #pageintro .introtxt::before{display:block; position:absolute; top:0; right:0; bottom:0; left:0; content:""; z-index:-1;}
 #pageintro .introtxt *{margin:0;}
-#pageintro .introtxt .heading{margin-bottom:30px; font-size:30px;}
-#pageintro .introtxt p{margin-bottom:30px; line-height:1.4;}
+#pageintro .introtxt .heading{margin-bottom:10px; font-size:30px;}
+#pageintro .introtxt p{margin-bottom:15px; line-height:1.4;}
 #pageintro .introtxt footer, #pageintro .introtxt footer .btn{margin-bottom:0;}
 
 
@@ -286,8 +286,8 @@ td{border-width:0 1px;}
 
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
-body{color:#FFFFFF; background-color:#000000;}
-a{color:#BD9969;}
+body{color:#F4F4F4; background-color:#000000;}
+a{color:rgb(0, 172, 238);}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
@@ -326,7 +326,8 @@ input:focus, textarea:focus, *:required:focus{border-color:#BD9969;}
 
 
 /* Page Intro */
-#pageintro .introtxt::before{background:rgba(0,0,0,.5);/* Fallback for IE9 */ background:linear-gradient(to bottom right, rgba(0,0,0,.5) 50%, rgba(0,0,0,.75) 50%);}
+#pageintro .introtxt::before{background:rgba(0,0,0,.85);
+ /*Fallback for IE9  background:linear-gradient(to bottom right, rgba(0,0,0,.5) 50%, rgba(0,0,0,.75) 50%);*/}
 
 
 /* Intro Blocks */

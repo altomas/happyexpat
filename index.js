@@ -6,5 +6,5 @@ var port = process.env.PORT || config.get('port');
 
 server.listen(port, function(){
     log.info('Express server listening on port: '
-     + config.get('port'));
+     + port);
 }); 

@@ -79,16 +79,32 @@ Licence URI: http://www.os-templates.com/template-terms
   <section id="pageintro" class="hoc clear">
     <div class="introtxt">      
       <h2 class="heading">Checking visa application status</h2>
-      <p class="heading-text">Welcome! On this website, you can check your Danish visa application status. Enter your Case Order Id and press "Submit"</p>
-      <form action="#" name="id" accept-charset="utf-8" target="parent">
+      <p class="heading-text">Welcome! On this website, you can check your <b>Danish</b> visa application status. Enter your Case Order Id and press "Submit"</p>
+      <form class="formSubmit">
         <div>
-          <input class="caseOrderIdField" type="text" placeholder="CaseOrderId">
+          <input class="caseOrderIdField" id="caseOrderId" type="text" placeholder="YY-XXXX-YY">
+          <p id="visaStatus" class="visaStatus displayNone" data-color="inProcessing"></p>
         </div>
         <div class="buttonForm">
-          <input class="btn small" type="submit" value="Submit">
+          <button class="btn small" id="checkbutton">Submit</button>
         </div>
+        <p id="wrongIdAlert" class="wrongAlertId visibilityOff">Wrong Case Order Id!</p>
+        <div class="preloader displayNone">
+          <div id="circularG">
+            <div id="circularG_1" class="circularG"></div>
+            <div id="circularG_2" class="circularG"></div>
+            <div id="circularG_3" class="circularG"></div>
+            <div id="circularG_4" class="circularG"></div>
+            <div id="circularG_5" class="circularG"></div>
+            <div id="circularG_6" class="circularG"></div>
+            <div id="circularG_7" class="circularG"></div>
+            <div id="circularG_8" class="circularG"></div>
+          </div>
+        </div>
+        
       </form>
-      <p class="heading-text">If you want receive e-mail with your application status, press <a href="#" class="notificatebtn">Notificate&nbsp;me</a></p>
+      <p class="heading-text displayNone"><a href="#" id="getStatusBnt" class="notificatebtn">Get&nbsp;status&nbsp;on&nbsp;email</a></p>
+      
      <!-- <footer><a class="btn small" href="#">Metus Venenatis</a></footer> -->      
     </div>
   </section> 
@@ -292,6 +308,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <script src="layout/scripts/jquery.min.js"></script>
 <script src="layout/scripts/jquery.backtotop.js"></script>
 <script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="layout/scripts/main.js"></script>
 <!-- IE9 Placeholder Support -->
 <script src="layout/scripts/jquery.placeholder.min.js"></script>
 <!-- / IE9 Placeholder Support -->

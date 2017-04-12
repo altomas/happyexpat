@@ -41,9 +41,17 @@ Licence URI: http://www.os-templates.com/template-terms
   </div> 
   <div class="wrapper">
     <header id="header" class="hoc clear">       
-      <div id="logo" class="fl_left">
-        <h1><a href="index.html"><img src="images/logo.png"></a></h1>
-         <p class="slogan">moving to Denmark</p>
+      <div id="logo" class="fl_left">        
+        <h1>
+          <div class="logo_wrapp">
+            <div class="logo_slogan">
+              <a href="index.html"><img src="images/logo.png"></a>
+              <p class="slogan">moving to Denmark</p>
+            </div>
+            <img class="flag" src="images/denmark_flag.png"/>
+          </div>
+        </h1>
+         
       </div>
       <nav id="mainav" class="fl_right visibilityOff">
         <ul class="clear">
@@ -82,15 +90,15 @@ Licence URI: http://www.os-templates.com/template-terms
       <p class="heading-text">Welcome! On this website, you can check your <b>Danish</b> visa application status. Enter your Case Order Id and press "Submit"</p>
       <form class="formSubmit">
         <div>
-          <input class="caseOrderIdField" id="caseOrderId" type="text" placeholder="YY-XXXX-YY">
+          <input class="caseOrderIdField" id="caseOrderId" type="text" placeholder="__-____-__">
           <p id="visaStatus" class="visaStatus displayNone" data-color="inProcessing"></p>
         </div>
         <div class="buttonForm">
           <button class="btn small" id="checkbutton">Submit</button>
         </div>
-        <p id="wrongIdAlert" class="wrongAlertId visibilityOff">Wrong Case Order Id!</p>
+        <p id="wrongIdAlert" class="wrongAlertId visibilityOff"></p>
         <div class="preloader displayNone">
-          <div id="circularG">
+          <div id="circularG" class="displayNone">
             <div id="circularG_1" class="circularG"></div>
             <div id="circularG_2" class="circularG"></div>
             <div id="circularG_3" class="circularG"></div>

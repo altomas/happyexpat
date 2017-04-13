@@ -7,10 +7,12 @@ var mailing = require('./mails')();
 
 
 var agenda = new Agenda({db: { address: config.get('agenda:uri'), collection: 'agendaJobs' }});
+
 agenda.maxConcurrency(1);
 
 agenda.on('ready', function() {
     agenda.define('schedule:statusupdt', function(job, done) {
+       
         var finishJob = function(){
             job.remove(function(err) {
                 if(err)
@@ -30,22 +32,22 @@ agenda.on('ready', function() {
                    log.error(err.message);
                    return;
                 }
-                
-                var processed = track.stats == 10;
+              
+                var processed = track.status == 10;
 
                 if(processed){
                     //send mail
                     mailing.submit(
                         job.attrs.data.email,
-                        'donotreplay subject', 
-                        'processed : ' + track, 
+                        'do not replay (visa status update)', 
+                        'Yor application (caseid: '+ track._id + ') was processed, please wait for mail on your post address', 
                         function(err){
                             
                             if(err){
                                 console.log(err);
                                 return;
                             }
-                            
+                           
                             //remove job
                             finishJob();
                         });

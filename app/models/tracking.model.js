@@ -9,18 +9,11 @@ var TrackingSchema = new Schema({
     _id:{ type: String, required: true },
     status: { type: Number, required: false },
     prevstatus: { type: Number, required: false },
-    email: { type: String, required: false },
     updated: {type: Date, required: false}
 });
 
 
 TrackingSchema.plugin(upsert);
-
-
-// validation
-TrackingSchema.path('email').validate(function (v) {
-    return true;
-});
 
 var TrackingModel = mongoose.model('Tracking', TrackingSchema);
 

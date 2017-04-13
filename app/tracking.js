@@ -16,7 +16,7 @@ var requestStatusData   = require('./provider');
         function (err, trackObj) {
             if (err) {
                 error = err;
-                 console.log(err);
+                 log.error(err);
                 return;
             } 
            

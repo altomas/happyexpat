@@ -22,8 +22,14 @@ var requestData = function(id, requestCallback)
     var paidSubstring = '_litStatus">Paid on';
     if(str.indexOf(paidSubstring) !== -1)
     {
-      console.log('In Progress');
       requestCallback(null, 5)// "Progress"
+      return;
+    }
+
+    var paidSubstring = 'registered';
+    if(str.indexOf(paidSubstring) !== -1)
+    {
+      requestCallback(null, 2)// "new order"
       return;
     }
     

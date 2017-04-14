@@ -76,12 +76,24 @@ var statusupdt = function(data, done){
     job.repeatEvery('1 day');
     job.unique({'data.caseid': data.caseid, 'data.email': data.email });
     job.save(function(err) {
+
             if (err) {
                 log.error(err);
                 done(error);
                 return;
             }
 
+            mailing.submit(
+                        job.attrs.data.email,
+                        'Do Not replay (visa status subscription)', 
+                        'You are subscribed for notification about visa processing status (caseid: '+ job.attrs.data.caseid + '), next notification mail you will get when your application is processed. We cannot inform you regarding positive or negative result cause this information is confidential, once your application is processed you will get post mail with resolution', 
+                        function(err){
+                            
+                            if(err){
+                                log.error(err);
+                            }
+                        });
+                        
             log.info("Job successfully saved");
             done(null, job)
         });

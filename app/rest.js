@@ -3,6 +3,7 @@ var tracking = require('./tracking');
 var config      = require('./config');
 var scheduler      = require('./scheduler');
 var bodyParser = require('body-parser');
+var mailing = require('./mails')();
 
 var restAPI = function (server){
 
@@ -14,7 +15,12 @@ var restAPI = function (server){
     //        var caseid = 'AY-6399-QJ';
 
     //        scheduler.scheduleStatusUPDT({caseid:caseid , email: mail}, function(err, job){
-    //                 return res.send({ error: err, job: job });
+                
+    //             if(err){
+    //                 log.error(err);
+    //             }
+
+    //             return res.send({ error: err, job: job });
     //     }); 
 
     // });
@@ -35,7 +41,11 @@ var restAPI = function (server){
         var mail = req.body.mail;
         
         scheduler.scheduleStatusUPDT({caseid:caseid , email: mail}, function(err, job){
-                    return res.send({ error: err, job: job });
+                if(err){
+                    log.error(err);
+                }
+                
+                return res.send({ error: err, job: job });
         });       
     });
 

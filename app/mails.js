@@ -1,6 +1,7 @@
 'use strict';
 var config      = require('./config');
 const nodemailer = require('nodemailer');
+var log    = require('./log')(module);
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
@@ -28,15 +29,16 @@ var mailing = function(from_who){
             text: '', // plain text body
             html: body // html body
         };
-
-        // // send mail with defined transport object
+        log.info('email sending')
+        // send mail with defined transport object
         transporter.sendMail(mailOptions, (err, info) => {
             if (err) {
+                    log.error(err)
                     done (err);
                     return;
-                }
-                
-                done()
+            }
+            log.info(info)
+            done()
         });
     };
 

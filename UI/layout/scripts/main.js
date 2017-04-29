@@ -11,7 +11,7 @@ $( document ).ready(function() {
             visaStatus = $("#visaStatus"),
             errors = validate(caseIdvalue);        
        
-        if(errors.length > 0 ) {
+        if(errors.length > 0 ) {console.log("err");
             if(!caseIdfield.hasClass("error")) {
                 caseIdfield.addClass("error");
             }
@@ -47,12 +47,21 @@ $( document ).ready(function() {
                     stopPreloader(preloader, circularG);
 
                     switch(data.tracking.status){
+                            case 0: visaSatatusText = "Not paid yet, only paid application can be tracked";
+                                    visaStatus.attr("data-color", "inProcessing");
+                                    break;
+
+                            case 2: visaSatatusText = "Payment registered. Try next day";
+                                    visaStatus.attr("data-color", "inProcessing");
+                                    break;
+
                             case 5: visaSatatusText = "In processing. Try next day";
                                     visaStatus.attr("data-color", "inProcessing");
                                     break;
+
                             case 10: visaSatatusText = "Processed! Wait for the letter.";
                                         visaStatus.attr("data-color", "processed");
-                                        break;
+                                    break;
                     }
 
                     if(visaSatatusText != null) {
@@ -138,6 +147,6 @@ function validate(value) {
 
 function maxLength(arguments) { 
     if (arguments.value.length != 10) {
-        arguments.errors.push({ errorType: 'maxLength', message: 'value must be, 10 symbols' });
+        arguments.errors.push({ errorType: 'maxLength', message: 'Case Order Id must has 10 symbols' });
     }
 }

@@ -1,5 +1,5 @@
 {
-    "port" : 1339,
+    "port" : 1338,
     "mongoose": {
         "uri": "mongodb://localhost:27017"
     },
@@ -11,8 +11,8 @@
 
     "mailing":
     {
-        "user": "",
-        "pass": "",
+        "user": "mail.happyexpat@gmail.com",
+        "pass": "sladkovalimonada",
         "from": "mail.happyexpat@gmail.com"
     }
  

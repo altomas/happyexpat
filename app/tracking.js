@@ -11,6 +11,7 @@ var requestStatusData   = require('./provider');
  var getStatusfn = function (id, callback){
 //1000*3600*24
     var inputDate = new Date(new Date().valueOf() - 1000*3600*24);
+    id = id.toLowerCase();
 
     TrackingModel.findOne({'_id': id }, [] , 
         function (err, trackObj) {
@@ -46,14 +47,13 @@ var requestStatusData   = require('./provider');
                 // but we can easilly detect if the paiment was not done just check that 
                 // prevstatus does not exist. If prevstatus == undefined it means case order 
                 // was not paid yet
-                if(!trackObj.prevstatus  && 10 == data)
+                if(!trackObj.status  && 10 == data)
                 {
                     data = 0;
                 }
 
                 if(trackObj.status != data)
                 {
-                    trackObj.prevstatus = trackObj.status;
                     trackObj.status = data;
                 }
                 //END  claryfing of status

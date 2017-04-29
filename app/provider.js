@@ -33,10 +33,9 @@ var requestData = function(id, requestCallback)
       return;
     }
     
-    var processedSubstring = 'Not Payable or Payment received';
+    var processedSubstring = 'Not payable or payment received';
     if(str.indexOf(processedSubstring) !== -1)
     {
-      console.log('Processed');
       requestCallback(null, 10) //"Processed"
       return;
     }

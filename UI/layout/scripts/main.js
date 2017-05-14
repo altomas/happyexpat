@@ -47,7 +47,7 @@ $( document ).ready(function() {
                     stopPreloader(preloader, circularG);
 
                     switch(data.tracking.status){
-                            case 0: visaSatatusText = "Not paid yet, only paid application can be tracked";
+                            case 0: visaSatatusText = "Not paid yet.";
                                     visaStatus.attr("data-color", "inProcessing");
                                     break;
 

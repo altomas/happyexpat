@@ -15,14 +15,16 @@ var requestData = function(id, requestCallback)
 
   response.on('data', function (chunk) {
     str += chunk;
+    
   });
 
   response.on('end', function () {
+    //console.log(str);
 
-    var paidSubstring = '_litStatus">Paid on';
-    if(str.indexOf(paidSubstring) !== -1)
+    var notPaidSubstring = 'Not paid';
+    if(str.indexOf(processedSubstring) !== -1)
     {
-      requestCallback(null, 5)// "Progress"
+      requestCallback(null, 0) //"Not paid"
       return;
     }
 
@@ -32,7 +34,14 @@ var requestData = function(id, requestCallback)
       requestCallback(null, 2)// "new order"
       return;
     }
-    
+
+    var paidSubstring = '_litStatus">Paid on';
+    if(str.indexOf(paidSubstring) !== -1)
+    {
+      requestCallback(null, 5)// "Progress"
+      return;
+    }
+
     var processedSubstring = 'Not payable or payment received';
     if(str.indexOf(processedSubstring) !== -1)
     {

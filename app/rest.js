@@ -28,9 +28,10 @@ var restAPI = function (server){
 
     server.get('/api/getstatus/:caseid', function (req, res) {
             tracking.getStatus(req.params.caseid,function (err, track) {
+                    if(err){
+                        log.error(err);
+                    }
                     return res.send( { error: err, tracking: track } );
-
-                return res.send(track);
             });
     });
     

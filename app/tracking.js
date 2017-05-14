@@ -26,7 +26,9 @@ var requestStatusData   = require('./provider');
                 return;
             }
 
+            console.log('data is being requested')
             requestStatusData(id, function(err, data){
+                console.log('data was requested')
                 if(err)
                 {
                     callback(err);
@@ -36,21 +38,10 @@ var requestStatusData   = require('./provider');
                 trackObj = trackObj || TrackingModel({
                         _id: id,
                         status: 0,
-                        email: "",
                         updated: new Date().getTime()
                     });
 
                 trackObj.updated = new Date().getTime();
-
-                // claryfing of status
-                // if case order is not paid or processed it will return the same status 10 
-                // but we can easilly detect if the paiment was not done just check that 
-                // prevstatus does not exist. If prevstatus == undefined it means case order 
-                // was not paid yet
-                if(!trackObj.status  && 10 == data)
-                {
-                    data = 0;
-                }
 
                 if(trackObj.status != data)
                 {

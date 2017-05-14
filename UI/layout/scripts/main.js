@@ -87,15 +87,17 @@ $( document ).ready(function() {
     $("#subscribeForm").submit(function(event) {
         event.preventDefault();
 
-        var form = $(this),
-            _caseId = form.find("input[name='caseId']" ).val(),
+            var form = $(this),
+            //_caseId = form.find("input[name='caseId']" ).val(),
             _email = form.find("input[name='email']" ).val(),
-            url = "/api/subscribe";
-
+            url = "/api/subscribe",
+            _caseId = $("#caseOrderId").val();
+          
         // Send the data using post
         var posting = $.post( url, { caseid: _caseId, mail: _email });
 
         posting.done(function( data ) {
+            alert('Subscribed');
             console.log(data);
         });
     });

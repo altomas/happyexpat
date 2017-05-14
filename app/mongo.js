@@ -4,7 +4,7 @@ var config      = require('./config');
 
 var connectionMongo = config.get('mongoose:uri');
 
-mongoose.connect(config.get('mongoose:uri'));
+mongoose.connect(connectionMongo);
 var db = mongoose.connection;
 
 db.on('error', function (err) {

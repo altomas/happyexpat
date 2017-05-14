@@ -1,18 +1,18 @@
 {
     "port" : 1339,
     "mongoose": {
-        "uri": "mongodb://localhost:27017"
+        "uri": "mongodb://heroku_w419b5nr:29h2l9ff404pc6ommbukrc5sm4@ds145750.mlab.com:45750/heroku_w419b5nr"
     },
     
     "agenda":
     {
-        "uri": "mongodb://localhost:27017/test1"
+        "uri": "mongodb://heroku_w419b5nr:29h2l9ff404pc6ommbukrc5sm4@ds145750.mlab.com:45750/heroku_w419b5nr"
     },
 
     "mailing":
     {
-        "user": "",
-        "pass": "",
+        "user": "mail.happyexpat@gmail.com",
+        "pass": "sladkovalimonada",
         "from": "mail.happyexpat@gmail.com"
     }
  

@@ -49,7 +49,7 @@ input.error, textarea.error, *:required.error{
     border-radius: 5px;    
     padding: 15px 0 10px;
     font-size: 20px;
-	margin-top: -40px !important;
+	/*margin-top: -10px !important;*/
 }
 .visaStatus[data-color='inProcessing']{
  	background-color: #FF9009;
@@ -68,6 +68,19 @@ input.error, textarea.error, *:required.error{
 
 }
 
+/* Subscribe form */
+#pageintro .introtxt #subscribeForm{
+	display: none;	
+	min-width: 200px;
+    width: 50%;
+    margin: 0 auto
+}
+#pageintro .introtxt #subscribeForm input{
+	display: inline-block;
+	width:100%;   
+    padding: 10px;
+	margin-bottom: 10px;
+ }
 
 .visibilityOff {visibility: hidden}
 .displayNone{display: none}

@@ -450,7 +450,7 @@ table a, #comments a{background-color:inherit;}
 
 	#header{text-align:center;}
 	#header #logo{margin-bottom:15px;}
-
+    #header #logo .logo_wrapp{margin: 0 auto}
 	#pageintro .introtxt{float:none; max-width:none;}
 
 	.container{padding-bottom:50px;}

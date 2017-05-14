@@ -35,17 +35,10 @@ $( document ).ready(function() {
                     }, 2000);  
                     return false;              
                 } 
-                // var result = checkInputText($(this));
-
-                // if(!result.checked) {
-                //     fireWarning(result.message);
-                // }
-
+                
                 var visaSatatusText = null;
                
                 setTimeout(function () {
-                    stopPreloader(preloader, circularG);
-
                     switch(data.tracking.status){
                             case 0: visaSatatusText = "Not paid yet.";
                                     visaStatus.attr("data-color", "inProcessing");
@@ -65,30 +58,19 @@ $( document ).ready(function() {
                     }
 
                     if(visaSatatusText != null) {
-                        caseIdfield.addClass("visibilityOff");
-                        submitBatton.addClass("visibilityOff");
-                        visaStatus.html(visaSatatusText).removeClass("displayNone");                   
-                    }          
-                       
+                        caseIdfield.addClass("displayNone");
+                        submitBatton.addClass("displayNone");      
+                            stopPreloader(preloader, circularG);
+                            visaStatus.html(visaSatatusText).removeClass("displayNone");  
+                    }    
                 }, 2000);
            }
-           
         });
-    //     .fail(function() { console.log("error");
-    //        //caseIdfield.addClass("error");
-          
-    //     })
-    //     .always(function() {
-    //         //circularG.css("display", "none");
-    //         //preloader.addClass("displayNone");
-    //    });
+   
         return false;
     });
     
-    // $( "#caseOrderId" ).blur(function() {
-        
-    // });
-
+    
     $("#caseOrderId" ).focus(function() {
         var el = $(this);
         if(el.hasClass("error")) {
@@ -97,15 +79,30 @@ $( document ).ready(function() {
         }
     });
 
-    $("#getStatusBnt").on("click", function() {
+    $("#getStatusBnt").click(function() {    
+        event.preventDefault();
+        $("#subscribeForm").toggle();
+    });
 
-    })
+    $("#subscribeForm").submit(function(event) {
+        event.preventDefault();
+
+        var form = $(this),
+            _caseId = form.find("input[name='caseId']" ).val(),
+            _email = form.find("input[name='email']" ).val(),
+            url = "/api/subscribe";
+
+        // Send the data using post
+        var posting = $.post( url, { caseid: _caseId, mail: _email });
+
+        posting.done(function( data ) {
+            console.log(data);
+        });
+    });
+    
 });
 
-// function getCaseId(fieldId) {    
-//     return fieldId.val() || null;
-// }
-
+//Preloader-------------------
 function startPreloader(preloaderWrapp, preloader) {
      preloaderWrapp.removeClass("displayNone");
      preloader.removeClass("displayNone"); 
@@ -116,6 +113,7 @@ function stopPreloader(preloaderWrapp, preloader) {
      preloader.addClass("displayNone"); 
 }
 
+//Warnings-------------------------
 function fireWarning(el, message) {
 
     var wrongAlert = $(el);
@@ -127,15 +125,19 @@ function cancelWarning(el) {
     $(el).addClass("visibilityOff");
 }
 
+//Validation-----------------------
 function validate(value) {
     var args = {
         value: value,
         errors: []
     };
 
-     isEmpty(args);
-     maxLength(args);
-
+    isEmpty(args);   
+    if(args.errors.length > 0) {
+        return args.errors;
+    }    
+    maxLength(args);
+    
     return args.errors;
 }
 
@@ -147,6 +149,6 @@ function validate(value) {
 
 function maxLength(arguments) { 
     if (arguments.value.length != 10) {
-        arguments.errors.push({ errorType: 'maxLength', message: 'Case Order Id must has 10 symbols' });
+        arguments.errors.push({ errorType: 'maxLength', message: 'Case Order Id must have 10 symbols' });
     }
 }

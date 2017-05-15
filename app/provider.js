@@ -21,36 +21,31 @@ var requestData = function(id, requestCallback)
   response.on('end', function () {
     //console.log(str);
 
-    var notPaidSubstring = 'Not paid';
-    if(str.indexOf(processedSubstring) !== -1)
+    if(str.indexOf('Not paid') !== -1)
     {
       requestCallback(null, 0) //"Not paid"
       return;
     }
 
-    var paidSubstring = 'registered';
-    if(str.indexOf(paidSubstring) !== -1)
+    if(str.indexOf('Registered') !== -1)
     {
       requestCallback(null, 2)// "new order"
       return;
     }
 
-    var paidSubstring = '_litStatus">Paid on';
-    if(str.indexOf(paidSubstring) !== -1)
+    if(str.indexOf('_litStatus">Paid on') !== -1)
     {
       requestCallback(null, 5)// "Progress"
       return;
     }
 
-    var processedSubstring = 'Not payable or payment received';
-    if(str.indexOf(processedSubstring) !== -1)
+    if(str.indexOf('Not payable or payment received') !== -1)
     {
       requestCallback(null, 10) //"Processed"
       return;
     }
 
-    var errorSubstring = '_lblABSError';
-    if(str.indexOf(errorSubstring) !== -1)
+    if(str.indexOf('_lblABSError') !== -1)
     {
       console.log('General error, probably incorrect case order ID');
       requestCallback({message: 'General error, probably incorrect case order ID'})

@@ -5,6 +5,7 @@ var scheduler      = require('./scheduler');
 var bodyParser = require('body-parser');
 var mailing = require('./mails')();
 
+
 var restAPI = function (server){
 
     server.use(bodyParser.json()); // support json encoded bodies
@@ -25,8 +26,14 @@ var restAPI = function (server){
 
     // });
 
+    var nocache = function (req, res, next) {
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+        res.header('Expires', '-1');
+        res.header('Pragma', 'no-cache');
+        next();
+    }
 
-    server.get('/api/getstatus/:caseid', function (req, res) {
+    server.get('/api/getstatus/:caseid', nocache, function (req, res) {
             tracking.getStatus(req.params.caseid,function (err, track) {
                     if(err){
                         log.error(err);
@@ -37,7 +44,7 @@ var restAPI = function (server){
     
     // POST http://localhost:8080/api/subscribe
     // parameters sent with 
-    server.post('/api/subscribe', function(req, res) {
+    server.post('/api/subscribe', nocache, function(req, res) {
         var caseid = req.body.caseid.toLowerCase();
         var mail = req.body.mail.toLowerCase();
         

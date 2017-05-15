@@ -74,7 +74,7 @@ var statusupdt = function(data, done){
     var job = agenda.create('schedule:statusupdt', data);
     // TODO: move interval into configuration
     job.repeatEvery('1 day');
-    job.unique({'data.caseid': data.caseid, 'data.email': data.email });
+    job.unique({'data.caseid': data.caseid.toLowerCase(), 'data.email': data.email.toLowerCase() });
     job.save(function(err) {
 
             if (err) {

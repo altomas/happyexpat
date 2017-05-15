@@ -38,8 +38,8 @@ var restAPI = function (server){
     // POST http://localhost:8080/api/subscribe
     // parameters sent with 
     server.post('/api/subscribe', function(req, res) {
-        var caseid = req.body.caseid;
-        var mail = req.body.mail;
+        var caseid = req.body.caseid.toLowerCase();
+        var mail = req.body.mail.toLowerCase();
         
         scheduler.scheduleStatusUPDT({caseid:caseid , email: mail}, function(err, job){
                 if(err){

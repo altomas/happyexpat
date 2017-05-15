@@ -37,7 +37,7 @@ var requestStatusData   = require('./provider');
 
                 trackObj = trackObj || TrackingModel({
                         _id: id,
-                        status: 0,
+                        status: data,
                         updated: new Date().getTime()
                     });
 

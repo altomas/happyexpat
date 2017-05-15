@@ -21,7 +21,7 @@ var requestData = function(id, requestCallback)
   response.on('end', function () {
     //console.log(str);
 
-    if(str.indexOf('Not paid') !== -1)
+    if(str.indexOf('Not paid') !== -1 || str.indexOf('Payment form shown/sent by post') !== -1)
     {
       requestCallback(null, 0) //"Not paid"
       return;
